@@ -1,0 +1,11 @@
+skills:
+  - name: bubbletea
+    description: Build terminal user interfaces with Go and Bubbletea framework
+  - name: frontend-design
+    description: Create distinctive, production-grade frontend interfaces with high design quality
+  - name: golang-pro
+    description: Build Go applications with concurrent programming and microservices architecture
+  - name: spec-writer
+    description: Write structured technical specifications for AI agent features and implementation plans
+  - name: update-docs
+    description: Update Deepcode documentation site to stay in sync with codebase changes
