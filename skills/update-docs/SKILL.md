@@ -1,7 +1,7 @@
 ---
 name: update-docs
 description: >
-  Updates the Deepcode documentation site (apps/web/docs — Astro Starlight) to stay in sync with
+  Updates the agentcd documentation site (apps/web/docs — Astro Starlight) to stay in sync with
   codebase changes. Use this skill whenever you've just made changes to CLI flags/commands, API
   endpoints, built-in tools, configuration options, manifest resource kinds, admin features, Docker
   Compose configs, providers, sandboxes, memory backends, or any other feature that belongs in the
@@ -10,7 +10,7 @@ description: >
   user didn't explicitly ask to "update docs".
 ---
 
-# Deepcode Docs Updater
+# agentcd Docs Updater
 
 The docs site at `apps/web/docs/` uses **Astro Starlight** with plain Markdown (`.md`) pages
 plus one `.mdx` landing page. It is the single source of truth for the project. Your job is to

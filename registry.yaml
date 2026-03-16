@@ -8,7 +8,7 @@ skills:
   - name: spec-writer
     description: Write structured technical specifications for AI agent features and implementation plans
   - name: update-docs
-    description: Update Deepcode documentation site to stay in sync with codebase changes
+    description: Update agentcd documentation site to stay in sync with codebase changes
   - name: phonecall
     description: Call a French phone number via Twilio and play ElevenLabs TTS audio
 

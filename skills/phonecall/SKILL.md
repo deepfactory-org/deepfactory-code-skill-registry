@@ -63,7 +63,7 @@ curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}" \
       "use_speaker_boost": true
     }
   }' \
-  --output /tmp/deepcode_tts_output.mp3
+  --output /tmp/agentcd_tts_output.mp3
 ```
 
 Verify the file was created and is > 0 bytes. If it fails, check the HTTP response for errors.
@@ -73,21 +73,21 @@ Verify the file was created and is > 0 bytes. If it fails, check the HTTP respon
 Twilio needs a publicly accessible URL to play audio via `<Play>`. Upload to catbox.moe (reliable, no auth required):
 
 ```bash
-AUDIO_URL=$(curl -s -F "reqtype=fileupload" -F "fileToUpload=@/tmp/deepcode_tts_output.mp3" https://catbox.moe/user/api.php)
+AUDIO_URL=$(curl -s -F "reqtype=fileupload" -F "fileToUpload=@/tmp/agentcd_tts_output.mp3" https://catbox.moe/user/api.php)
 ```
 
 Verify `AUDIO_URL` is a valid URL (should start with `https://files.catbox.moe/`). If catbox.moe fails, try these fallbacks:
 
 **Fallback A — file.io:**
 ```bash
-AUDIO_URL=$(curl -s -F "file=@/tmp/deepcode_tts_output.mp3" https://file.io | python3 -c "import sys,json; print(json.load(sys.stdin)['link'])")
+AUDIO_URL=$(curl -s -F "file=@/tmp/agentcd_tts_output.mp3" https://file.io | python3 -c "import sys,json; print(json.load(sys.stdin)['link'])")
 ```
 
 **Fallback B — ngrok (if installed):**
 ```bash
 python3 -m http.server 8765 --directory /tmp &
 ngrok http 8765
-# Use the ngrok HTTPS URL + /deepcode_tts_output.mp3
+# Use the ngrok HTTPS URL + /agentcd_tts_output.mp3
 ```
 
 Store the resulting URL in `AUDIO_URL`.

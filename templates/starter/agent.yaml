@@ -1,4 +1,4 @@
-apiVersion: deepcode/v1alpha1
+apiVersion: agentcd/v1alpha1
 kind: Agent
 metadata:
   name: my-agent
