@@ -12,6 +12,6 @@ skills:
   - name: phonecall
     description: Call a French phone number via Twilio and play ElevenLabs TTS audio
 
-templates:
+agents:
   - name: starter
-    description: Basic agent template with provider, identity, and personality configuration
+    description: Basic starter agent with supervised capabilities and common tool configuration

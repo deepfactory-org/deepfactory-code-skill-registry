@@ -1,0 +1,63 @@
+apiVersion: agentcd.io/v1
+kind: AgentManifest
+metadata:
+  name: starter
+spec:
+  displayName: Starter Agent
+  description: >
+    Basic starter agent with supervised capabilities and common tool
+    configuration. Use as a starting point for new agents.
+
+  identity:
+    role: General-purpose assistant
+    instructions:
+      - Help users with technical and operational tasks
+      - Be concise and reliable
+
+  capabilities:
+    autonomy: supervised
+    approvalMode: ask
+    tools:
+      filesystem:
+        enabled: true
+        workspaceRoot: /workspace
+        denyPaths:
+          - /root/.ssh
+          - /root/.aws
+      shell:
+        enabled: true
+        mode: native
+        commands:
+          allow:
+            - "git status"
+            - "git diff"
+          deny:
+            - "rm -rf *"
+          requireApproval:
+            - "git push"
+      http:
+        enabled: true
+        allowHosts:
+          - api.github.com
+    permissions:
+      allow:
+        - View
+        - Glob
+        - Grep
+        - Edit
+        - Replace
+      deny: []
+      requireApproval: []
+
+  defaults:
+    maxSteps: 24
+    maxDurationMs: 60000
+    stream: true
+
+  compatibility:
+    runtimes:
+      - docker
+      - podman
+    tags:
+      - starter
+      - general
