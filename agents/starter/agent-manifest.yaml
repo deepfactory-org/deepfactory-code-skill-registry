@@ -8,11 +8,15 @@ spec:
     Basic starter agent with supervised capabilities and common tool
     configuration. Use as a starting point for new agents.
 
-  identity:
-    role: General-purpose assistant
+  behavior:
+    identity:
+      file: IDENTITY.md
+    soul:
+      file: SOUL.md
     instructions:
-      - Help users with technical and operational tasks
-      - Be concise and reliable
+      inline: |
+        - Help users with technical and operational tasks
+        - Be concise and reliable
 
   capabilities:
     autonomy: supervised

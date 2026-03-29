@@ -1,23 +1,40 @@
 ---
 name: starter
-description: Basic agent template with provider, identity, and personality configuration
+description: Basic agent template with behavior configuration (identity, soul, instructions)
 license: Apache-2.0
 ---
 
-# Starter Template
+# Starter Agent
 
-A minimal agent template that provides the essential files to get started with a deepfactory-code agent.
+A minimal agent template that provides the essential files to get started with an AgentCD agent.
 
 ## Included Files
 
-- `agent.yaml` — Agent manifest with provider, memory, toolset, and policy references
-- `IDENTITY.md` — Agent identity definition (customize with your agent's role and capabilities)
-- `SOUL.md` — Agent personality and system prompt (customize with your agent's behavior)
+- `agent-manifest.yaml` — Agent manifest with behavior, capabilities, and defaults
+- `IDENTITY.md` — Agent identity: role, expertise, responsibilities
+- `SOUL.md` — Agent personality: tone, problem-solving approach, boundaries
+
+## Behavior Configuration
+
+Each section under `behavior` accepts either inline markdown or a file reference:
+
+```yaml
+behavior:
+  identity:
+    file: IDENTITY.md       # load from file
+  soul:
+    file: SOUL.md
+  heartbeat:
+    file: HEARTBEAT.md      # optional — autonomous scheduling
+  instructions:
+    inline: |               # or write directly in YAML
+      - Be concise and reliable
+```
 
 ## Usage
 
 ```bash
-agent-builder template install starter
+agentcd-builder template install starter
 ```
 
-After installation, customize the files in `agents/<name>/` to fit your use case.
+After installation, customize the behavior files to fit your use case.
